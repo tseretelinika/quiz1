@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="features">
+    <h2>products</h2>
+
+
+
+    <div class="feature-container">
+
+        {% for product in product_items %}
+
+        <div class="feature-card">
+            <h3>{{ product.name }}</h3>
+
+            <p class="price">price: {{ product.price }}</p>
+
+            {% if product.price > 500 %}
+                <p class="product-status good">expensive</p>
+            {% else %}
+                <p class="product-status standard">normal</p>
+            {% endif %}
+        </div>
+
+        {% endfor %}
+
+    </div>
+</section>
+
+{% endblock %}

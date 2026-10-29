@@ -1,0 +1,603 @@
+
+/* =========================================
+   TECHNO HUB — MODERN TECH DESIGN
+   Dark neon theme | Animations | Glass UI
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap');
+
+/* ---------- GLOBAL VARIABLES ---------- */
+
+:root {
+    --bg-dark: #080b16;
+    --bg-secondary: #10172a;
+    --card-bg: rgba(20, 29, 51, 0.78);
+
+    --primary: #00e5ff;
+    --secondary: #8b5cf6;
+    --accent: #ff3cac;
+
+    --text-main: #f3f6ff;
+    --text-muted: #a4b0cc;
+
+    --border-color: rgba(0, 229, 255, 0.20);
+
+    --radius: 20px;
+    --transition: 0.35s ease;
+}
+
+/* ---------- RESET ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 229, 255, 0.10),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 70%,
+            rgba(139, 92, 246, 0.13),
+            transparent 35%
+        ),
+        var(--bg-dark);
+
+    overflow-x: hidden;
+    animation: pageAppear 0.8s ease both;
+}
+
+::selection {
+    color: #080b16;
+    background: var(--primary);
+}
+
+/* ---------- NAVIGATION BAR ---------- */
+
+.navbar {
+    position: relative;
+    z-index: 10;
+    padding: 18px 5%;
+    background: rgba(8, 11, 22, 0.82) !important;
+    border-bottom: 1px solid var(--border-color);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.20);
+}
+
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--primary) !important;
+    text-transform: uppercase;
+
+    text-shadow: 0 0 18px rgba(0, 229, 255, 0.45);
+
+    transition: var(--transition);
+}
+
+.navbar-brand:hover {
+    color: white !important;
+    text-shadow:
+        0 0 10px var(--primary),
+        0 0 30px var(--primary);
+
+    transform: scale(1.04);
+}
+
+.navbar-toggler {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 8px 12px;
+    box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.15) !important;
+}
+
+.navbar-toggler-icon {
+    filter: hue-rotate(140deg);
+}
+
+.navbar-collapse {
+    padding-top: 10px;
+}
+
+.navbar-nav {
+    gap: 10px;
+}
+
+.navbar .nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 10px 16px !important;
+    color: var(--text-muted) !important;
+    font-weight: 600;
+    text-transform: capitalize;
+    transition: var(--transition);
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 16px;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+    transition: width var(--transition);
+}
+
+.navbar .nav-link:hover {
+    color: white !important;
+}
+
+.navbar .nav-link:hover::after {
+    width: calc(100% - 32px);
+}
+
+.navbar-text {
+    color: var(--primary) !important;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- MAIN CONTENT ---------- */
+
+/* Supports your existing .conteiner class
+   without changing the HTML. */
+
+.conteiner {
+    width: min(1150px, 90%);
+    margin: 0 auto;
+    padding: 70px 0;
+    min-height: 60vh;
+}
+
+/* ---------- HOME PAGE ---------- */
+
+h1 {
+    position: relative;
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 55px 25px;
+
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.3;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: transparent;
+    background: linear-gradient(
+        100deg,
+        #ffffff 5%,
+        var(--primary) 45%,
+        var(--secondary) 75%,
+        #ffffff 100%
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    filter: drop-shadow(0 0 25px rgba(0, 229, 255, 0.15));
+
+    animation: heroReveal 1s ease both;
+}
+
+/* Animated glow beneath the home heading */
+
+h1::after {
+    content: '';
+    display: block;
+    width: min(220px, 60%);
+    height: 3px;
+    margin: 28px auto 0;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.6);
+    animation: lineGlow 3s ease-in-out infinite alternate;
+}
+
+/* ---------- PRODUCTS SECTION ---------- */
+
+.features {
+    width: 100%;
+    animation: fadeUp 0.8s ease both;
+}
+
+.features h2 {
+    margin: 0 0 40px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 800;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    color: var(--text-main);
+    text-shadow: 0 0 25px rgba(0, 229, 255, 0.20);
+}
+
+.features h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    margin: 18px auto 0;
+    border-radius: 10px;
+
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.45);
+}
+
+/* ---------- PRODUCT GRID ---------- */
+
+.feature-container {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(min(100%, 250px), 1fr)
+    );
+    gap: 28px;
+    align-items: stretch;
+}
+
+/* ---------- PRODUCT CARDS ---------- */
+
+.feature-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 220px;
+    padding: 30px;
+
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        transform var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition);
+
+    animation: fadeUp 0.7s ease both;
+}
+
+/* Soft animated light inside each card */
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+    background: var(--primary);
+    opacity: 0.08;
+    filter: blur(65px);
+
+    transition:
+        transform 0.6s ease,
+        opacity 0.6s ease;
+}
+
+/* Neon top border */
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        var(--secondary),
+        transparent
+    );
+
+    opacity: 0.65;
+    transition: opacity var(--transition);
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(0, 229, 255, 0.65);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 25px rgba(0, 229, 255, 0.10);
+}
+
+.feature-card:hover::before {
+    transform: scale(1.6);
+    opacity: 0.18;
+}
+
+.feature-card:hover::after {
+    opacity: 1;
+}
+
+/* ---------- PRODUCT NAME ---------- */
+
+.feature-card h3 {
+    margin: 0 0 22px;
+    overflow-wrap: anywhere;
+
+    color: #ffffff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.5;
+
+    transition:
+        color var(--transition),
+        text-shadow var(--transition);
+}
+
+.feature-card:hover h3 {
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.25);
+}
+
+/* ---------- PRODUCT PRICE ---------- */
+
+.feature-card .price {
+    margin: 0 0 22px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.feature-card .price::first-letter {
+    color: var(--primary);
+}
+
+/* ---------- PRODUCT STATUS ---------- */
+
+.product-status {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 8px;
+
+    width: fit-content;
+    max-width: 100%;
+    margin: auto 0 0;
+    padding: 8px 14px;
+
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.product-status::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: currentColor;
+    box-shadow: 0 0 10px currentColor;
+}
+
+.product-status.good {
+    color: #ffbd59;
+    background: rgba(255, 189, 89, 0.10);
+    border: 1px solid rgba(255, 189, 89, 0.30);
+}
+
+.product-status.standard {
+    color: #48f5b2;
+    background: rgba(72, 245, 178, 0.09);
+    border: 1px solid rgba(72, 245, 178, 0.25);
+}
+
+.feature-card:hover .product-status {
+    transform: translateY(-2px);
+}
+
+/* ---------- LINKS AND BUTTONS ---------- */
+
+a {
+    transition: color var(--transition);
+}
+
+button {
+    font-family: inherit;
+}
+
+/* ---------- SCROLLBAR ---------- */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        var(--primary),
+        var(--secondary)
+    );
+    border: 2px solid var(--bg-dark);
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes pageAppear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+        filter: blur(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineGlow {
+    from {
+        opacity: 0.55;
+        transform: scaleX(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleX(1.1);
+    }
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+
+    .conteiner {
+        width: 92%;
+        padding: 45px 0;
+    }
+
+    h1 {
+        padding: 35px 10px;
+        letter-spacing: 0;
+    }
+
+    .features h2 {
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+    }
+
+    .feature-container {
+        gap: 18px;
+    }
+
+    .feature-card {
+        padding: 24px;
+    }
+
+    .navbar-text {
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 400px) {
+    .feature-container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .feature-card {
+        padding: 22px;
+    }
+}
+
+/* ---------- ACCESSIBILITY ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

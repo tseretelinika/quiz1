@@ -1,0 +1,9 @@
+@"
+.venv/
+myenv/
+__pycache__/
+*.py[cod]
+db.sqlite3
+.env
+.idea/
+"@ | Set-Content .gitignore
